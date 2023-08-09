@@ -1,0 +1,26 @@
+<h4>Listado</h4>
+<!-- unordered list -->
+<ul class="list-group">
+  <li *ngFor="let character of characterList;
+   let i = index;
+   let isFirst = first;
+   let isLast = last;
+   let isEven = even;
+   let isOdd = odd"
+   class="list-group-item d-flex justify-content-between align-items-center"
+   [ngClass]="{'list-group-item-success': character.power >= 9000,
+                'list-group-item-secondary': character.power <= 1000}">
+   <!-- Hacerlo con lógica en el html -->
+   <!-- class="list-group-item {{ i === 0 ? 'list-group-item-success': '' }}"> -->
+    <div>
+      <span class="text-primary">{{ i + 1 }}. </span>
+      <span>Name: {{ character.name }}</span>
+      <strong> Power: {{ character.power }}</strong>
+    </div>
+    <button class="btn btn-danger" (click)="onDeleteCharacter(character.id!)">X</button>
+<!--   <span>Es el primero: {{ isFirst }} </span>
+  <span>Es el último: {{ isLast }} </span>
+  <span>Par: {{ !isEven }} </span>
+  <span>Impar: {{ !isOdd }} </span> -->
+  </li>
+</ul>
